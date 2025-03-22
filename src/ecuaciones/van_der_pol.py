@@ -4,7 +4,7 @@ from scipy.integrate import solve_ivp
 from euler import euler_method2
 
 # Parámetro de la ecuación
-u = 1.0
+u = 2.0
 
 # Definir la ecuación diferencial dx/dt = y, dy/dt = u(1-x^2)y - x
 def dxdt(t, x, y):
@@ -53,7 +53,7 @@ def system(t, z):
 
 
 # Condiciones iniciales
-x0 = 1.0
+x0 = 2.0
 y0 = 0.0
 z0 = [x0, y0]
 
