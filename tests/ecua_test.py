@@ -27,6 +27,14 @@ def euler_method(f, x0, y0, h, n):
 def f(x, y):
     return y
 
+def test_euler_method():
+    x0, y0 = 0, 1
+    h = 0.1
+    n = 10
+    x, y = euler_method(f, x0, y0, h, n)
+    expected_y = [1.0, 1.1, 1.21, 1.331, 1.4641, 1.61051, 1.771561, 1.9487171, 2.14358881, 2.357947691, 2.5937424601]
+    assert np.allclose(y, expected_y), f"Expected {expected_y}, but got {y}"
+
 @pytest.mark.parametrize("n", [10, 100, 1000, 10000]) #parametrizacion de n.
 def test_euler_method_benchmark(benchmark, n):
     benchmark.pedantic(euler_method, args=(f, 0, 1, 0.1, n), rounds=10, iterations=10) #benchmark pedantic
